@@ -1,1 +1,0 @@
-/Users/danielwagner/.zprezto/runcoms/zshrc
