@@ -1,22 +1,37 @@
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+# Source zprezto--
+if [ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+
+elif [ -s "${HOME}/.oh-my-zsh/oh-my-zsh.sh" ]; then
+# Source oh-my-zsh--
+  export ZSH="/Users/${LOGNAME}/.oh-my-zsh"
+  
+# Themes--
+# ( https://github.com/robbyrussell/oh-my-zsh/wiki/Themes )
+  ZSH_THEME="fishy" # ZSH_THEME="lambda"
+  HYPHEN_INSENSITIVE="true"
+  DISABLE_AUTO_UPDATE="true"
+  ENABLE_CORRECTION="false"
+  COMPLETION_WAITING_DOTS="true"
+  
+  plugins=(git)
+  
+  source "${ZSH}/oh-my-zsh.sh"
 fi
 
-# Custom Aliases
-[ -f "/usr/local/bin/vis" ] && alias vi=vis     # If vis is installed, alias vi=vis
-alias zshrc="vi $HOME/.zshrc"                   # Open this preference file
+# ZSH Configurations--
+setopt localoptions rmstarsilent
+unsetopt nomatch
 
-export GOPATH=$HOME/git/go
-export GOROOT=/usr/local/opt/go/libexec
-export PY_PATH=$HOME/Library/Python/3.7/bin
-export RUBY_PATH=/usr/local/opt/ruby/bin
-export PATH=$PY_PATH:$RUBY_PATH:$PATH:$GOPATH/bin:$GOROOT/bin
+export GITPATH="${HOME}/git"
+export PYPATH="${HOME}/Library/Python/3.6/bin"
+export RUBYPATH="${HOME}/.gem/ruby/2.3.0/bin"
+export LOCALBIN="${HOME}/bin:${HOME}/.bin"
+PATH=$LOCALBIN:/usr/local/bin:$PATH:$PYPATH:$RUBYPATH
 
-# Heroku CLI (autocomplete)
-HEROKU_AC_ZSH_SETUP_PATH=$HOME/Library/Caches/heroku/autocomplete/zsh_setup
-[ -f $HEROKU_AC_ZSH_SETUP_PATH ] && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
+# Functions/Aliases--
+for import in $HOME/.config/*.zsh; do
+  source "${import}"
+done
 
-# Travis CLI
-TRAVISCLI_SETUP_PATH=$HOME/.travis/travis.sh
-[ -f $TRAVISCLI_SETUP_PATH ] && source $TRAVISCLI_SETUP_PATH
+export PATH
