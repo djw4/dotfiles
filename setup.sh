@@ -1,5 +1,11 @@
 #!/usr/bin/env sh
 
-[ ! -d $HOME/.dotfiles ] && git clone git@github.com:djw4/dotfiles.git $HOME/.dotfiles
+if [ ! -d "${HOME}/.dotfiles" ] then;
+  git clone git@github.com:djw4/dotfiles.git $HOME/.dotfiles
+fi
 
-cp $HOME/.dotfiles/.zshrc $HOME/.zshrc && source $HOME/.zshrc
+if [ ! -d "${HOME}/.config" ] then;
+  mkdir -v $HOME/.config
+fi
+
+#cp $HOME/.dotfiles/.zshrc $HOME/.zshrc && source $HOME/.zshrc
