@@ -8,7 +8,7 @@ elif [ -s "${HOME}/.oh-my-zsh/oh-my-zsh.sh" ]; then
   
 # Themes--
 # ( https://github.com/robbyrussell/oh-my-zsh/wiki/Themes )
-  ZSH_THEME="fishy" # ZSH_THEME="lambda"
+  ZSH_THEME="cypher-djw"
   HYPHEN_INSENSITIVE="true"
   DISABLE_AUTO_UPDATE="true"
   ENABLE_CORRECTION="false"
