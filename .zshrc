@@ -1,14 +1,10 @@
-# Source zprezto--
-if [ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-
-elif [ -s "${HOME}/.oh-my-zsh/oh-my-zsh.sh" ]; then
-# Source oh-my-zsh--
+if [ -s "${HOME}/.oh-my-zsh/oh-my-zsh.sh" ]; then
+  # Source oh-my-zsh--
   export ZSH="/Users/${LOGNAME}/.oh-my-zsh"
   
-# Themes--
-# ( https://github.com/robbyrussell/oh-my-zsh/wiki/Themes )
-  ZSH_THEME="cypher-djw"
+  # themes-- https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+  # ZSH_THEME="cypher-djw"
+  ZSH_THEME="cypher"
   HYPHEN_INSENSITIVE="true"
   DISABLE_AUTO_UPDATE="true"
   ENABLE_CORRECTION="false"
