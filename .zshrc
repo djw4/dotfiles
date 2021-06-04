@@ -26,7 +26,7 @@ export LOCALBIN="${HOME}/bin:${HOME}/.bin"
 PATH=$LOCALBIN:/usr/local/bin:$PATH:$PYPATH:$RUBYPATH
 
 # Functions/Aliases--
-for import in $HOME/.config/*.zsh; do
+for import in $HOME/.config/zsh/*.zsh; do
   source "${import}"
 done
 
