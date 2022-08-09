@@ -10,7 +10,7 @@ antigen bundle "git"
 antigen bundle "zsh-users/zsh-completions"
 antigen bundle "elstgav/branch-manager"
 antigen bundle "tig"
-antigen bundle "kubectl"
+command -v kubectl 1>/dev/null && antigen bundle "kubectl"
 antigen bundle "aliases"
 
 antigen theme gentoo
@@ -35,10 +35,11 @@ export XDG_CONFIG_HOME="${HOME}/.config" # For k9s
 export PIPENV_VENV_IN_PROJECT=true
 export PATH="${LOCALBIN}:/usr/local/bin:${PATH}:${GOPATH}/bin:${GOROOT}/bin"
 unset GIT_PAGER
+export HOMEBREW_NO_ENV_HINTS=true
 
 # Completions--
-source <(kubectl completion zsh)
-eval "$(_PIPENV_COMPLETE=zsh_source pipenv)"
+command -v kubectl 1>/dev/null && source <(kubectl completion zsh)
+command -v pipenv 1>/dev/null && eval "$(_PIPENV_COMPLETE=zsh_source pipenv)"
 
 # Aliases--
 alias sz="source ${HOME}/.zshrc"

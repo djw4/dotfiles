@@ -1,11 +1,19 @@
 # dotfiles
 
-```
-ln -sf $PWD/.config/ $HOME/.config/zsh
-ln -sf $PWD/.zshrc $HOME/.zshrc
-```
+### ZSH
 
-Also 
-```
-test ! -d $HOME/.dotfiles &amp;&amp; git clone --bare https://github.com/djw4/dotfiles $HOME/.dotfiles; git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME checkout -f
-```
+1. Install [oh-my-zsh](https://ohmyz.sh/)
+2. Configure zsh using the script
+    ```
+    $ ./zsh/setup.sh
+    ```
+3. [Antigen](https://github.com/zsh-users/antigen) will handle the remainder of the plugin installations automatically.
+
+
+### Brew (packages)
+
+1. Install [brew](https://brew.sh/)
+2. Install packages using the script
+    ```
+    $ ./packages/setup.sh
+    ```
